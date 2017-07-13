@@ -1,0 +1,7 @@
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Model\bin\Release\XPressWPF.Model.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Model\bin\Release\XPressWPF.Model.pdb
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Model\bin\Release\XPressWPF.Shared.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Model\bin\Release\XPressWPF.Shared.pdb
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Model\obj\Release\XPressWPF.Model.csprojResolveAssemblyReference.cache
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Model\obj\Release\XPressWPF.Model.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Model\obj\Release\XPressWPF.Model.pdb

@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="XPressWPF.Modules.Employee.View.EmployeeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:XPressWPF.Shared;assembly=XPressWPF.Shared"
+             mc:Ignorable="d"
+             Background="{DynamicResource DefaultUserControlBackground}" d:DesignWidth="415" d:DesignHeight="290"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <xctk:BusyIndicator IsBusy="{Binding IsWorking}" >
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resources:Labels.LBL_FirstName}" ContentStringFormat="{}{0}:"/>
+            <TextBox Grid.Row="1" 
+                 Grid.Column="1" 
+                 Text="{Binding CurrentEmployee.FirstName}" />
+
+            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resources:Labels.LBL_LastName}" ContentStringFormat="{}{0}:"/>
+            <TextBox Grid.Row="2" 
+                 Grid.Column="1" 
+                 Text="{Binding CurrentEmployee.LastName}" />
+
+            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resources:Labels.LBL_Age}" ContentStringFormat="{}{0}:"/>
+            <TextBox Grid.Row="3" 
+                 Grid.Column="1" 
+                 Text="{Binding CurrentEmployee.Age}" />
+
+            <!-- TODO: Show currency symbol -->
+            <Label Grid.Row="4" Grid.Column="0" Content="{x:Static resources:Labels.LBL_Salary}" ContentStringFormat="{}{0}:"/>
+            <TextBox Grid.Row="4" 
+                 Grid.Column="1" 
+                 Text="{Binding CurrentEmployee.Salary}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="{x:Static resources:Labels.LBL_DepartmentName}" ContentStringFormat="{}{0}:"/>
+            <TextBox Grid.Row="5" 
+                 Grid.Column="1" 
+                 Text="{Binding CurrentEmployee.DepartmentName}"/>
+
+            <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Button Command="{Binding RefreshEmployeesCommand}">Refresh</Button>
+                <Button Command="{Binding AddNewEmployeeCommand}">Add</Button>
+                <Button Command="{Binding UpdateEmployeeCommand}">Update</Button>
+                <Button Command="{Binding DeleteEmployeeCommand}">Delete</Button>
+            </StackPanel>
+
+
+            <ListView Grid.Row="7" 
+                  Grid.Column="0" 
+                  Grid.ColumnSpan="2" 
+                  ItemsSource="{Binding Employees}" 
+                  SelectedItem="{Binding CurrentEmployee}" 
+                  ItemContainerStyle="{StaticResource GridViewItemContStyle}">
+                <ListView.View>
+                    <!-- TODO: right allign numeric values-->
+                    <GridView AllowsColumnReorder="False" ColumnHeaderToolTip="Employees" >
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_ID}" Width="Auto" DisplayMemberBinding="{Binding Id }"/>
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_FirstName}" Width="Auto" DisplayMemberBinding="{Binding FirstName}" />
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_LastName}" Width="Auto" DisplayMemberBinding="{Binding LastName}" />
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_Age}" Width="Auto" DisplayMemberBinding="{Binding Age}" />
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_Salary}" Width="Auto" DisplayMemberBinding="{Binding Salary}"  />
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_DepartmentName}" Width="Auto" DisplayMemberBinding="{Binding DepartmentName}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>

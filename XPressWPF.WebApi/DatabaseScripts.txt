@@ -1,0 +1,77 @@
+﻿-- CREATE TABLE dbo.Department
+CREATE TABLE [dbo].[Department](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](max) NOT NULL,
+	CONSTRAINT PK_Department_Id PRIMARY KEY (ID)
+	)
+
+GO
+
+-- CREATE TABLE dbo.Employee
+CREATE TABLE [dbo].[Employee](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [varchar](max) NULL,
+	[LastName] [varchar](max) NULL,
+	[Age] [int] NULL,
+	[Salary] [float] NULL,
+	[DepartmentId] [int] NULL,
+	CONSTRAINT PK_Employee_Id PRIMARY KEY (ID),
+	CONSTRAINT FK_Employee_DepartmentId FOREIGN KEY (DepartmentId)
+    REFERENCES [dbo].[Department](Id)
+	)
+
+GO
+
+-- Populate [dbo].[Department] with data
+INSERT INTO [dbo].[Department]
+           ([Name])
+     VALUES
+			('Research and Development'),
+			('Sales and Marketing'),
+			('Manufacturing'),
+			('Quality Assurance'),
+			('IT')
+
+GO
+
+-- Populate [dbo].[Employee] with data
+INSERT INTO [dbo].[Employee]
+           ([FirstName]
+           ,[LastName]
+           ,[Age]
+           ,[Salary]
+           ,[DepartmentId])
+     VALUES
+			('Ken','Sánchez',25,2022.3,1),
+			('Darko','Subić',30,null,1),
+			('Gigi','Matthew',36,690.36,2),
+			('Janice','Galvin',20,7000.0,2)
+
+GO
+
+CREATE SCHEMA USR
+
+GO
+
+CREATE TABLE USR.AppStyles(
+	ID INT Identity(1,1),
+	StyleName varchar(30) not null,
+	StyleData xml not null,	
+	CONSTRAINT PK_AppStyles_Id PRIMARY KEY (ID)
+)
+
+GO
+
+CREATE TABLE USR.AppUser(
+	ID INT Identity(1000,1),
+	UserName varchar(20) not null,
+	UserPassword varchar(20) null,
+	FacebookID varchar(17),
+	FacebookProfileImageSmall varbinary(max) null,
+	FacebookProfileImageLarge varbinary(max) null,
+	StyleId int null CONSTRAINT DF_AppUser_StyleId DEFAULT 1,
+	CONSTRAINT PK_AppUser_Id PRIMARY KEY (ID),
+	CONSTRAINT FK_AppUser_StyleId FOREIGN KEY (StyleId)
+    REFERENCES [USR].[AppStyles](ID)
+	)
+

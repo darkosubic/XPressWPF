@@ -1,0 +1,6 @@
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\bin\Release\XPressWPF.Shared.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\bin\Release\XPressWPF.Shared.pdb
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj\Release\XPressWPF.Shared.Labels.resources
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj\Release\XPressWPF.Shared.csproj.GenerateResource.Cache
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj\Release\XPressWPF.Shared.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj\Release\XPressWPF.Shared.pdb

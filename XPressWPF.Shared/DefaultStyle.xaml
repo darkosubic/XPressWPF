@@ -1,0 +1,128 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:XPressWPF.Shared;assembly=XPressWPF.Shared">
+
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#3B3F49" ></SolidColorBrush>
+    <SolidColorBrush x:Key="FacebookUsernameColor" Color="White" ></SolidColorBrush>
+    <SolidColorBrush x:Key="DefaultUserControlBackground" Color="#D9DADE" ></SolidColorBrush>
+    <SolidColorBrush x:Key="DefaultButtonBackgroundOnMouseOver" Color="#FCDCA9" ></SolidColorBrush>
+    <SolidColorBrush x:Key="DefaultGdridViewHeaderBackgroundColor" Color="White" ></SolidColorBrush>
+    <Color x:Key="DefaultFontColor" R="196" G="203" B="183" ></Color>
+    <FontFamily x:Key="DefaultFontFamillyName">Gadugi, Georgia</FontFamily>
+
+    <!-- GridView Headder-->
+    <Style TargetType="GridViewColumnHeader">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="5,0,5,0"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowBackgroundBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DefaultGdridViewHeaderBackgroundColor}"/>
+            </Trigger>
+            <Trigger Property="Control.IsMouseOver" Value="True">
+                <Setter Property="Control.Background" Value="Transparent" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!-- GridView items-->
+    <Style x:Key="GridViewItemContStyle" TargetType="{x:Type ListViewItem}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="#778188" />
+                <Setter Property="Background" Value="#C4D6D6" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="true">
+                <Setter Property="Foreground" Value="#778188" />
+                <Setter Property="Background" Value="#FCDCA9" />
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontStyle" Value="Normal" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+    <!-- ListBoxItem -->
+    <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border Name="_Border"
+                            Padding="2"
+                            SnapsToDevicePixels="true">
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter TargetName="_Border" Property="Background" Value="#FCDCA9"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="FontSize" Value="16" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Foreground" Value="Black" />
+    </Style>
+
+    <!-- ListBox -->
+    <Style TargetType="{x:Type ListBox}" >
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True" >
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Foreground" Value="#E8CAAF" />
+            </Trigger>
+        </Style.Triggers>
+        <Style.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+        </Style.Resources>
+        <Setter Property="Background" Value="#C4D6D6" />
+    </Style>
+
+    <!-- Label -->
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{DynamicResource WindowBackgroundBrush}"/>
+    </Style>
+
+    <!-- Button-->
+    <Style TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="#666666" 
+                            BorderThickness="1"
+                            Padding="5"
+                            Width="75">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="Gray"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter Property="Background" Value="#CCCCCC"></Setter>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DefaultButtonBackgroundOnMouseOver}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Button-->
+    <Style TargetType="TextBox">
+        <Setter Property="Height" Value="21"/>
+        <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamillyName}" />
+    </Style>
+
+    
+</ResourceDictionary>

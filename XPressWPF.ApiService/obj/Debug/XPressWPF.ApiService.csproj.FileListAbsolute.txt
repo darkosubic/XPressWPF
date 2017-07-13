@@ -1,0 +1,13 @@
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\XPressWPF.ApiService.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\XPressWPF.ApiService.pdb
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\XPressWPF.Model.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\XPressWPF.Shared.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\XPressWPF.Model.pdb
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\XPressWPF.Shared.pdb
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\bin\Debug\XPressWPF.Shared.dll.config
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\obj\Debug\XPressWPF.ApiService.csprojResolveAssemblyReference.cache
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\obj\Debug\XPressWPF.ApiService.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.ApiService\obj\Debug\XPressWPF.ApiService.pdb

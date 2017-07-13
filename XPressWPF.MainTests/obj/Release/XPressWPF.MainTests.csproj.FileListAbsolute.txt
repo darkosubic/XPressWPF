@@ -1,0 +1,9 @@
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\bin\Release\XPressWPF.MainTests.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\bin\Release\XPressWPF.MainTests.pdb
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\bin\Release\Newtonsoft.Json.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\bin\Release\Newtonsoft.Json.xml
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\obj\Release\XPressWPF.MainTests.csprojResolveAssemblyReference.cache
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\obj\Release\XPressWPF.MainTests.dll
+C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.MainTests\obj\Release\XPressWPF.MainTests.pdb

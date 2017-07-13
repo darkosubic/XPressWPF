@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="XPressWPF.Modules.Department.View.DepartmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XPressWPF.Modules"
+             xmlns:resources="clr-namespace:XPressWPF.Shared;assembly=XPressWPF.Shared"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             Background="{DynamicResource DefaultUserControlBackground}">
+
+    <xctk:BusyIndicator IsBusy="{Binding IsWorking}" >
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resources:Labels.LBL_DepartmentName}" ContentStringFormat="{}{0}:"></Label>
+            <TextBox Grid.Row="0" 
+                 Grid.Column="1" 
+                 Text="{Binding CurrentDepartment.Name, UpdateSourceTrigger=LostFocus}" />
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Button Command="{Binding RefreshDepartmentsCommand}">Refresh</Button>
+                <Button Command="{Binding AddNewDepartmentCommand}">Add</Button>
+                <Button Command="{Binding UpdateDepartmentCommand}">Update</Button>
+                <Button Command="{Binding DeleteDepartmentCommand}">Delete</Button>
+            </StackPanel>
+
+
+            <ListView Grid.Row="2" 
+                  Grid.Column="0" 
+                  Grid.ColumnSpan="2" 
+                  ItemsSource="{Binding Departments}" 
+                  SelectedItem="{Binding CurrentDepartment}"
+                  ItemContainerStyle="{StaticResource GridViewItemContStyle}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Departments">
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_ID}" Width="Auto" DisplayMemberBinding="{Binding Id }" />
+                        <GridViewColumn Header="{x:Static resources:Labels.LBL_DepartmentName}" Width="Auto" DisplayMemberBinding="{Binding Name}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>

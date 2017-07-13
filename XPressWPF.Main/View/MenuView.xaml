@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="XPressWPF.Main.View.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:userFB="clr-namespace:XPressWPF.Shared;assembly=XPressWPF.Shared"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid MouseDown="UIElement_OnMouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Ugly way of fixing things, detect if Multi or single screen environment,
+            find out if application is in full screen mode
+            then apply margin and padding from te edge of screen or window -->
+        <StackPanel Orientation="Horizontal" 
+                    Grid.Row="0" 
+                    Grid.Column="0">
+            <TextBlock Text="{Binding Source={x:Static userFB:User.FacebookFullName}}" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Right"
+                Padding="0,0,10,0" Foreground="{DynamicResource FacebookUsernameColor}"/>
+
+            <Image HorizontalAlignment="Right" 
+               Source="{Binding Source={x:Static userFB:User.FacebookProfileImageSmall}, Mode=OneWay}"
+               Cursor="Hand">
+                <Image.Clip>
+                    <EllipseGeometry Center="18,18" RadiusX="18" RadiusY="18" />
+                </Image.Clip>
+            </Image>
+
+        </StackPanel>
+
+        <Popup x:Name="PopUpMenu1" 
+                Grid.Row="1" 
+                Grid.Column="0"
+                IsOpen="False"
+               HorizontalAlignment="Left"
+               Margin="0,0,140,0">
+            <ListBox HorizontalAlignment="Left" 
+                Width="Auto">
+                <ListBoxItem>Not Implemented Feature (App Styling)</ListBoxItem>
+                <ListBoxItem>Not Implemented Feature (LogOut and ShutDown)</ListBoxItem>
+                <ListBoxItem>
+                    <!--TODO Proof of concept-->
+                    <Button Click="ButtonBase_OnClick">Styles proof of concept</Button>
+                </ListBoxItem>
+            </ListBox>
+        </Popup>
+
+    </Grid>
+</UserControl>
+

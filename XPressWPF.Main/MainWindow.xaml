@@ -1,0 +1,45 @@
+﻿<Window x:Class="XPressWPF.Main.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:menuView="clr-namespace:XPressWPF.Main.View"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"    
+        Background="{DynamicResource WindowBackgroundBrush}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <menuView:MenuView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" HorizontalContentAlignment="Right"></menuView:MenuView>
+        <menuView:ModuleListView Grid.Column="0" Grid.Row="1" BorderThickness="0"></menuView:ModuleListView>
+        <!-- TODO export to its own user control in XPressWPF.Model project -->
+        <TabControl  Grid.Row="1" Grid.Column="1" Name="TabMain" 
+                     ItemsSource="{Binding TabsCollection,UpdateSourceTrigger=PropertyChanged}"
+                     SelectedItem="{Binding CurrentTab, Mode=TwoWay}">
+            <TabControl.ItemTemplate>
+                <DataTemplate >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Header}"/>
+                        <Image Source="/XPressWPF.Shared;component/Images/x_icon.png" Cursor="Hand" Margin="5,0,0,0" Width="12" Height="12">
+                            <Image.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.CloseTabCommand,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"/>
+                            </Image.InputBindings>
+                        </Image>
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <UserControl Content="{Binding Content}"></UserControl>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+    
+</Window>
