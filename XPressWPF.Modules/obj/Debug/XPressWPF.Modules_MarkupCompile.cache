@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Modules\obj\Debug\
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Modules\obj\Debug\
 XPressWPF.Modules
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 2-1626022428
 
-5-1646845273
-19627066
+71088592590
+20807044205
 Department\View\DepartmentView.xaml;Employee\View\EmployeeView.xaml;
 
 False

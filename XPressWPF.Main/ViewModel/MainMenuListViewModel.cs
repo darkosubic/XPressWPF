@@ -1,14 +1,13 @@
-﻿using System.Collections.ObjectModel;
+﻿using Ninject;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
-using XPressWPF.ApiService;
 using XPressWPF.Main.View;
-using XPressWPF.Modules.Department.View;
-using XPressWPF.Modules.Department.ViewModel;
-using XPressWPF.Modules.Employee.View;
-using XPressWPF.Modules.Employee.ViewModel;
 using XPressWPF.Shared;
+using XPressWPF.Shared.Helpers;
 using XPressWPF.Shared.Services.DialogService;
 using XPressWPF.Shared.Services.WindowService;
 
@@ -18,37 +17,45 @@ namespace XPressWPF.Main.ViewModel
     {
         private readonly IMessageDialogService _messageDialogService;
         private readonly IWindowService _windowService;
+        private readonly IKernel _kernel;
 
-        public MainMenuListViewModel(IMessageDialogService messageDialogService, IWindowService windowService)
+        public MainMenuListViewModel(IMessageDialogService messageDialogService, IWindowService windowService, IKernel kernel, IAvailableModules availableModules)
         {
             _messageDialogService = messageDialogService;
             _windowService = windowService;
-
-            EmployeeVM = new EmployeeViewModel(new EmployeeApi(), _messageDialogService);
-            DepartmentVM = new DepartmentsViewModel(new DepartmentApi(), _messageDialogService);
-
-            ModulesCollection = new ObservableCollection<ViewModelBase>() { EmployeeVM, DepartmentVM };
-            CurrentModule = ModulesCollection.First();
+            _kernel = kernel;
+            
+            ModulesCollection = new ObservableCollection<Module>();
         }
 
-        public EmployeeViewModel EmployeeVM { get; set; }
-        public DepartmentsViewModel DepartmentVM { get; set; }
 
 
-        private ObservableCollection<ViewModelBase> _modulesCollection;
-        public ObservableCollection<ViewModelBase> ModulesCollection
+        private ObservableCollection<Module> _modulesCollection;
+        public ObservableCollection<Module> ModulesCollection
         {
             get => _modulesCollection;
-            set
+            private set
             {
                 if (_modulesCollection != null && _modulesCollection == value) return;
-                _modulesCollection = value;
-                OnPropertyChanged();
+                if (_modulesCollection == null)
+                {
+                    _modulesCollection = new ObservableCollection<Module>();
+                    List<Module> modules = _kernel.Get<IAvailableModules>().ListOfModules;
+                    _modulesCollection = modules.AddToNewObservableCollection();
+                    CurrentModule = _modulesCollection.FirstOrDefault();
+
+                    OnPropertyChanged();
+                }
+                else
+                {
+                    _modulesCollection = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
-        private ViewModelBase _currentModule;
-        public ViewModelBase CurrentModule
+        private Module _currentModule;
+        public Module CurrentModule
         {
             get => _currentModule;
             set
@@ -60,8 +67,8 @@ namespace XPressWPF.Main.ViewModel
             }
         }
 
-        private ObservableCollection<TabItem> _tabsCollection;
-        public ObservableCollection<TabItem> TabsCollection
+        private ObservableCollection<XPressWPF.Shared.TabItem> _tabsCollection;
+        public ObservableCollection<XPressWPF.Shared.TabItem> TabsCollection
         {
             get => _tabsCollection;
             set
@@ -72,8 +79,8 @@ namespace XPressWPF.Main.ViewModel
             }
         }
 
-        private TabItem _currentTab;
-        public TabItem CurrentTab
+        private XPressWPF.Shared.TabItem _currentTab;
+        public XPressWPF.Shared.TabItem CurrentTab
         {
             get => _currentTab;
             set
@@ -85,7 +92,7 @@ namespace XPressWPF.Main.ViewModel
                 OnPropertyChanged();
             }
         }
-        
+
         // TODO Remove this to command to its own viewmodel once the ninject modules are done
         public ICommand CloseTabCommand => new CustomCommand(CanExecuteCloseTabCommand, ExecuteCloseTabCommand);
         private bool CanExecuteCloseTabCommand(object obj)
@@ -95,7 +102,7 @@ namespace XPressWPF.Main.ViewModel
 
         private void ExecuteCloseTabCommand(object obj)
         {
-            TabItem tab = (TabItem)obj;
+            XPressWPF.Shared.TabItem tab = (XPressWPF.Shared.TabItem)obj;
             TabsCollection.Remove(TabsCollection.First(tc => tc.Header == tab.Header));
         }
 
@@ -106,56 +113,36 @@ namespace XPressWPF.Main.ViewModel
         {
             return !IsWorking;
         }
-
-        // ViewModel should not know about a View
-        // change implementation of RefreshUserControl
+        
         private void ExecuteRefreshUserControl(object obj)
         {
             IsWorking = true;
             try
             {
+                Module module = (Module)obj;
+
                 if (TabsCollection == null || TabsCollection.Count == 0)
                 {
-                    TabsCollection = new ObservableCollection<TabItem>();
+                    TabsCollection = new ObservableCollection<XPressWPF.Shared.TabItem>();
+                }
+                if (TabsCollection.Any(tc => tc.Id == module.Id))
+                {
+                    CurrentTab = TabsCollection.First(tc => tc.Id == module.Id);
+                    return;
                 }
 
-                TabItem newTab = null;
-                string viewModelName = CurrentModule.GetType().Name;
-                switch (viewModelName)
+                Type view = Type.GetType(module.Namespace);
+                
+                Shared.TabItem newTab = new Shared.TabItem
                 {
-                    case ("EmployeeViewModel"):
-                        {
-                            newTab = new TabItem
-                            {
-                                Content = new EmployeeView() { DataContext = new EmployeeViewModel(new EmployeeApi(), _messageDialogService) },
-                                Header = "Employees"
-                            };
-                            if (TabsCollection.Any(tc => tc.Header == newTab.Header))
-                            {
-                                CurrentTab = TabsCollection.Where(tc => tc.Header == newTab.Header).First();
-                                return;
-                            }
-                            TabsCollection.Add(newTab);
-                            CurrentTab = newTab;
-                        }
-                        break;
-                    case ("DepartmentsViewModel"):
-                        {
-                            newTab = new TabItem
-                            {
-                                Content = new DepartmentView() { DataContext = new DepartmentsViewModel(new DepartmentApi(), _messageDialogService) },
-                                Header = "Departments"
-                            };
-                            if (TabsCollection.Any(tc => tc.Header == newTab.Header))
-                            {
-                                CurrentTab = TabsCollection.First(tc => tc.Header == newTab.Header);
-                                return;
-                            }
-                            TabsCollection.Add(newTab);
-                            CurrentTab = newTab;
-                        }
-                        break;
-                }
+                    Id = module.Id,
+                    Content = _kernel.Get(view),
+                    Header = module.Name
+                };
+                
+                TabsCollection.Add(newTab);
+                CurrentTab = newTab;
+
                 OnPropertyChanged();
             }
             finally
@@ -164,7 +151,7 @@ namespace XPressWPF.Main.ViewModel
             }
         }
         #endregion
-
+        
 
         private ObservableCollection<ListBoxItem> _userOptions;
 
@@ -197,10 +184,4 @@ namespace XPressWPF.Main.ViewModel
             _windowService.ShowFullScreenWindow<EditStylesView>(this);
         }
     }
-    public class TabItem
-    {
-        public string Header { get; set; }
-        public UserControl Content { get; set; }
-    }
-
 }

@@ -9,3 +9,13 @@ C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj
 C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.dll
 C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.pdb
 C:\Users\DS\documents\visual studio 2017\Projects\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.csprojResolveAssemblyReference.cache
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\bin\Debug\XPressWPF.Shared.dll.config
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\bin\Debug\XPressWPF.Shared.dll
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\bin\Debug\XPressWPF.Shared.pdb
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\DefaultStyle.baml
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared_MarkupCompile.cache
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.g.resources
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.Labels.resources
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.csproj.GenerateResource.Cache
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.dll
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.pdb

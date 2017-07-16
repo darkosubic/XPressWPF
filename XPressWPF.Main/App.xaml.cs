@@ -1,8 +1,10 @@
 ﻿using Ninject;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using XPressWPF.ApiService;
 using XPressWPF.Main.ViewModel;
+using XPressWPF.Shared.Helpers;
 using XPressWPF.Shared.Services.DialogService;
 using XPressWPF.Shared.Services.WindowService;
 
@@ -22,18 +24,16 @@ namespace XPressWPF.Main
         protected async override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            //TODO: create ninject modules
-
+            
             ConfigureContainer();
+
+            PrepareModules();
 
             await OpenFacebookWindowAsync();
 
             //Todo : Create User table, Create Style table, Allow only registered users to access app, apply styling to user interface
             ComposeObjects();
-
-            //Thread.Sleep(10000);
-
+            
             Current.MainWindow.Show();
         }
 
@@ -55,14 +55,20 @@ namespace XPressWPF.Main
             _container.Bind<IWindowService>().To<WindowService>().InTransientScope();
             _container.Bind<IEmployeeApi>().To<EmployeeApi>().InTransientScope();
             _container.Bind<IDepartmentApi>().To<DepartmentApi>().InTransientScope();
+            _container.Bind<IAvailableModules>().To<AvailableModules>().InSingletonScope();
             _container.Bind<MainWindow>().ToSelf();
         }
 
         private void ComposeObjects()
         {
             Current.MainWindow = _container.Get<MainWindow>();
-            Current.MainWindow.DataContext = new MainMenuListViewModel(_container.Get<MessageDialogService>(), _container.Get<WindowService>());
+            Current.MainWindow.DataContext = _container.Get<MainMenuListViewModel>();
             Current.MainWindow.Title = "Main Window";
+        }
+
+        private void PrepareModules()
+        {
+            _container.Load("*.dll");
         }
     }
 }
