@@ -29,7 +29,7 @@ namespace XPressWPF.Main
 
             PrepareModules();
 
-            await OpenFacebookWindowAsync();
+            //await OpenFacebookWindowAsync();
 
             //Todo : Create User table, Create Style table, Allow only registered users to access app, apply styling to user interface
             ComposeObjects();

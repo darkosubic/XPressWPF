@@ -82,6 +82,7 @@ C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Ma
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.ApiService.dll
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Facebook.exe
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Model.dll
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Modules.dll
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Shared.dll
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\Facebook.dll
@@ -90,6 +91,7 @@ C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Ma
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Facebook.pdb
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Facebook.exe.config
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Model.pdb
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Modules.pdb
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Shared.pdb
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Shared.dll.config
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\Ninject.xml
@@ -136,5 +138,3 @@ C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Ma
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\obj\Debug\XPressWPF.Main.csproj.GenerateResource.Cache
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\obj\Debug\XPressWPF.Main.exe
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\obj\Debug\XPressWPF.Main.pdb
-C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Modules.dll
-C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Main\bin\Debug\XPressWPF.Modules.pdb

@@ -19,3 +19,4 @@ C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Sh
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.csproj.GenerateResource.Cache
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.dll
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.pdb
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.Shared\obj\Debug\XPressWPF.Shared.csprojResolveAssemblyReference.cache

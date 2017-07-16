@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPressWPF.Shared", "XPressW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPressWPF.Facebook", "XPressWPF.Facebook\XPressWPF.Facebook.csproj", "{033F8CC9-AF09-4813-B240-A8F8B6E932ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPressWPF.Modules.Tests", "XPressWPF.Modules.Tests\XPressWPF.Modules.Tests.csproj", "{FADE1B9B-868C-4D67-AB6B-575DB124BD31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{033F8CC9-AF09-4813-B240-A8F8B6E932ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{033F8CC9-AF09-4813-B240-A8F8B6E932ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{033F8CC9-AF09-4813-B240-A8F8B6E932ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FADE1B9B-868C-4D67-AB6B-575DB124BD31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADE1B9B-868C-4D67-AB6B-575DB124BD31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADE1B9B-868C-4D67-AB6B-575DB124BD31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADE1B9B-868C-4D67-AB6B-575DB124BD31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
