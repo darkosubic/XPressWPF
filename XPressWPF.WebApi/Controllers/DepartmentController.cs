@@ -6,15 +6,18 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using XPressWPF.Model;
+using XPressWPF.WebApi.Services;
 
 namespace XPressWPF.WebApi.Controllers
 {
     [RoutePrefix("api/Department")]
     public class DepartmentController : ApiController
     {
+        private readonly IQueryReader _queryReader;
         private string _connectionString;
-        public DepartmentController()
+        public DepartmentController(IQueryReader queryReader)
         {
+            _queryReader = queryReader;
             _connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
@@ -22,7 +25,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("")]
         public HttpResponseMessage GetAll()
         {
-            const string getSql = "SELECT * FROM dbo.Department";
+            string getSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("GetAllDepartments");
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -35,7 +38,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("Insert")]
         public async Task<HttpResponseMessage> Insert(DepartmentModel model)
         {
-            const string insertSql = "INSERT INTO dbo.Department (Name) VALUES (@Name)";
+            string insertSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("InsertNewDepartment");
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -52,7 +55,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("Update")]
         public async Task<HttpResponseMessage> Update(DepartmentModel model)
         {
-            const string updateSql = "UPDATE dbo.Department SET Name = @Name WHERE Id = @Id";
+            string updateSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("UpdateDepartment");
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -69,7 +72,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("Delete/{id:int}")]
         public async Task<HttpResponseMessage> Delete(int id)
         {
-            const string deleteSql = "DELETE FROM dbo.Department WHERE ID = @ID";
+            string deleteSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("DeleteDepartment");
 
             using (var connection = new SqlConnection(_connectionString))
             {

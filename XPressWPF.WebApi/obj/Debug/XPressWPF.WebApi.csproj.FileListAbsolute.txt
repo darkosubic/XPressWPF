@@ -96,3 +96,7 @@ C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.We
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.WebApi\obj\Debug\XPressWPF.WebApi.csprojResolveAssemblyReference.cache
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.WebApi\obj\Debug\XPressWPF.WebApi.dll
 C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.WebApi\obj\Debug\XPressWPF.WebApi.pdb
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.WebApi\bin\Autofac.dll
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.WebApi\bin\Autofac.Integration.WebApi.dll
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.WebApi\bin\Autofac.xml
+C:\Users\DS\Documents\visual studio 2017\GitHub\XPressWPF\XPressWPF\XPressWPF.WebApi\bin\Autofac.Integration.WebApi.xml

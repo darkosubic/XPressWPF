@@ -1,21 +1,27 @@
 ﻿using Dapper;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using XPressWPF.Model;
+using XPressWPF.WebApi.Services;
 
 namespace XPressWPF.WebApi.Controllers
 {
+
+
     [RoutePrefix("api/Employee")]
     public class EmployeeController : ApiController
     {
+        private readonly IQueryReader _queryReader;
 
         private string _connectionString;
-        public EmployeeController()
+        public EmployeeController(IQueryReader queryReader)
         {
+            _queryReader = queryReader;
             _connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
@@ -23,7 +29,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("")]
         public HttpResponseMessage GetAll()
         {
-            const string getSql = "SELECT em.[Id] ,em.[FirstName]	,em.[LastName] ,em.[Age] ,em.[Salary] ,em.[DepartmentId] ,dp.[Name] as DepartmentName FROM [DapperTutorialDB].[dbo].[Employee] AS em LEFT JOIN [dbo].[Department] dp on em.DepartmentId = dp.Id";
+            string getSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("GetAllEmployees");
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -36,7 +42,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("Insert")]
         public async Task<HttpResponseMessage> Insert(EmployeeModel model)
         {
-            const string insertSql = "INSERT INTO dbo.Employee (FirstName, LastName, Age, Salary) VALUES (@FirstName, @LastName, @Age, @Salary)";
+            string insertSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("InsertNewEmployee");
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -55,7 +61,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("Update")]
         public async Task<HttpResponseMessage> Update(EmployeeModel model)
         {
-            const string updateSql = "UPDATE dbo.Employee SET FirstName = @FirstName, LastName = @LastName, Age = @Age, Salary = @Salary WHERE Id = @Id";
+            string updateSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("UpdateEmployee");
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -75,7 +81,7 @@ namespace XPressWPF.WebApi.Controllers
         [Route("Delete/{id:int}")]
         public async Task<HttpResponseMessage> Delete(int id)
         {
-            const string deleteSql = "DELETE FROM dbo.Employee WHERE Id = @Id";
+            string deleteSql = _queryReader.GetQueryFromSqlFolderWithSqlExtension("DeleteEmployee");
 
             using (var connection = new SqlConnection(_connectionString))
             {

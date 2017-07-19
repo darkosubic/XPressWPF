@@ -11,6 +11,7 @@ namespace XPressWPF.WebApi
     {
         protected void Application_Start()
         {
+            Bootstrapper.Configure();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
